@@ -1,0 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+	html,
+	body {
+		@apply min-h-dvh bg-white text-black dark:bg-gray-900 dark:text-white;
+	}
+}
