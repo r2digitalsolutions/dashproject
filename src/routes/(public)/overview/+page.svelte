@@ -1,11 +1,19 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { api } from '$lib/utils/api';
 	import { CheckCircle } from 'lucide-svelte';
+
 	let currentStep = 0;
 	let projectName = '';
 	let adminUsername = '';
 	let adminPassword = '';
 	let databaseType = 'sqlite';
 	let useTypeScript = false;
+	let databaseName = '';
+	let databaseHost = '';
+	let databaseUsername = '';
+	let databasePassword = '';
+	let databasePort = 5432;
 
 	const steps = [
 		{
@@ -43,16 +51,22 @@
 		}
 	}
 
-	function submitConfig() {
-		// Aquí iría la lógica para enviar la configuración al backend
-		console.log('Configuración enviada:', {
+	async function submitConfig() {
+		const xhr = await api('/api/overview', 'POST', {
 			projectName,
 			adminUsername,
 			adminPassword,
 			databaseType,
-			useTypeScript
+			useTypeScript,
+			databaseName,
+			databaseHost,
+			databaseUsername,
+			databasePassword,
+			databasePort
 		});
-		alert('¡Configuración completada!');
+
+		console.log('xhr', xhr);
+		goto('/app');
 	}
 </script>
 
@@ -70,7 +84,8 @@
 
 				{#if currentStep === 0}
 					<button
-						on:click={nextStep}
+						type="button"
+						onclick={nextStep}
 						class="w-full rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-700 hover:dark:bg-gray-600"
 					>
 						Comenzar
@@ -134,6 +149,71 @@
 							<option value="mongodb">MongoDB</option>
 						</select>
 					</div>
+					<div class="mb-4">
+						<label
+							for="databaseName"
+							class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+							>Nombre de la Base de Datos</label
+						>
+						<input
+							type="text"
+							id="databaseName"
+							bind:value={databaseName}
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+						/>
+					</div>
+					<div class="mb-4">
+						<label
+							for="databaseHost"
+							class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+							>Host de la Base de Datos</label
+						>
+						<input
+							type="text"
+							id="databaseHost"
+							bind:value={databaseHost}
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+						/>
+					</div>
+					<div class="mb-4">
+						<label
+							for="databaseUsername"
+							class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+							>Usuario de la Base de Datos</label
+						>
+						<input
+							type="text"
+							id="databaseUsername"
+							bind:value={databaseUsername}
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+						/>
+					</div>
+					<div class="mb-4">
+						<label
+							for="databasePassword"
+							class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+							>Contraseña de la Base de Datos</label
+						>
+						<input
+							type="password"
+							id="databasePassword"
+							bind:value={databasePassword}
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+						/>
+					</div>
+					<div class="mb-4">
+						<label
+							for="databasePort"
+							class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+							>Puerto de la Base de Datos</label
+						>
+						<input
+							type="number"
+							id="databasePort"
+							bind:value={databasePort}
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+						/>
+					</div>
 				{:else if currentStep === 4}
 					<div class="mb-4">
 						<label class="flex items-center">
@@ -187,7 +267,7 @@
 						</div>
 					</div>
 					<button
-						on:click={submitConfig}
+						onclick={submitConfig}
 						class="w-full rounded-md bg-green-500 px-4 py-2 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
 					>
 						Finalizar Configuración
@@ -197,13 +277,13 @@
 				{#if currentStep > 0 && currentStep < 5}
 					<div class="mt-8 flex justify-between">
 						<button
-							on:click={prevStep}
+							onclick={prevStep}
 							class="rounded-md bg-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
 						>
 							Anterior
 						</button>
 						<button
-							on:click={nextStep}
+							onclick={nextStep}
 							class="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-700 hover:dark:bg-gray-600"
 						>
 							Siguiente
