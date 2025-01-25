@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-600 font-[sans-serif] text-gray-800"
+	class="bg-linear-to-r from-purple-900 via-purple-800 to-purple-600 font-[sans-serif] text-gray-800"
 >
 	<div class="fle-col flex min-h-screen items-center justify-center p-4 lg:p-6">
 		<div class="grid w-full max-w-6xl items-center gap-10 md:grid-cols-2">
@@ -68,7 +68,7 @@
 				<div>
 					<button
 						type="submit"
-						class="w-full rounded-md bg-gray-800 px-6 py-3 text-sm font-semibold text-white shadow-xl hover:bg-[#222] focus:outline-none"
+						class="w-full rounded-md bg-gray-800 px-6 py-3 text-sm font-semibold text-white shadow-xl hover:bg-[#222] focus:outline-hidden"
 					>
 						Log in
 					</button>
@@ -77,7 +77,7 @@
 				<p class="my-6 text-center text-sm text-gray-400">or continue with</p>
 
 				<div class="flex justify-center space-x-6">
-					<button type="button" class="border-none outline-none">
+					<button type="button" class="border-none outline-hidden">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="30px"
@@ -116,7 +116,7 @@
 							/>
 						</svg>
 					</button>
-					<button type="button" class="border-none outline-none">
+					<button type="button" class="border-none outline-hidden">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="30px"
@@ -130,7 +130,7 @@
 						</svg>
 					</button>
 
-					<button type="button" class="border-none outline-none">
+					<button type="button" class="border-none outline-hidden">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="30px"

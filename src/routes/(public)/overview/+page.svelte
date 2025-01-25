@@ -73,7 +73,7 @@
 <div class="flex min-h-screen flex-col justify-center bg-gray-100 py-6 dark:bg-gray-900 sm:py-12">
 	<div class="relative py-3 sm:mx-auto sm:max-w-xl">
 		<div
-			class="to-light-blue-500 dark:from absolute inset-0 -skew-y-6 transform bg-gradient-to-r from-cyan-400 shadow-lg sm:-rotate-6 sm:skew-y-0 sm:rounded-3xl"
+			class="to-light-blue-500 dark:from absolute inset-0 -skew-y-6 transform bg-linear-to-r from-cyan-400 shadow-lg sm:-rotate-6 sm:skew-y-0 sm:rounded-3xl"
 		></div>
 		<div class="relative bg-white px-4 py-10 shadow-lg dark:bg-gray-800 sm:rounded-3xl sm:p-20">
 			<div class="mx-auto max-w-md">
@@ -86,7 +86,7 @@
 					<button
 						type="button"
 						onclick={nextStep}
-						class="w-full rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-700 hover:dark:bg-gray-600"
+						class="w-full rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-700 dark:hover:bg-gray-600"
 					>
 						Comenzar
 					</button>
@@ -101,7 +101,7 @@
 							type="text"
 							id="projectName"
 							bind:value={projectName}
-							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-xs focus:border-blue-500 focus:outline-hidden focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
 						/>
 					</div>
 				{:else if currentStep === 2}
@@ -115,7 +115,7 @@
 							type="text"
 							id="adminUsername"
 							bind:value={adminUsername}
-							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-xs focus:border-blue-500 focus:outline-hidden focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
 						/>
 					</div>
 					<div class="mb-4">
@@ -128,7 +128,7 @@
 							type="password"
 							id="adminPassword"
 							bind:value={adminPassword}
-							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-xs focus:border-blue-500 focus:outline-hidden focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
 						/>
 					</div>
 				{:else if currentStep === 3}
@@ -141,7 +141,7 @@
 						<select
 							id="databaseType"
 							bind:value={databaseType}
-							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-xs focus:border-blue-500 focus:outline-hidden focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
 						>
 							<option value="sqlite">SQLite</option>
 							<option value="mysql">MySQL</option>
@@ -159,7 +159,7 @@
 							type="text"
 							id="databaseName"
 							bind:value={databaseName}
-							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-xs focus:border-blue-500 focus:outline-hidden focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
 						/>
 					</div>
 					<div class="mb-4">
@@ -172,7 +172,7 @@
 							type="text"
 							id="databaseHost"
 							bind:value={databaseHost}
-							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-xs focus:border-blue-500 focus:outline-hidden focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
 						/>
 					</div>
 					<div class="mb-4">
@@ -185,7 +185,7 @@
 							type="text"
 							id="databaseUsername"
 							bind:value={databaseUsername}
-							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-xs focus:border-blue-500 focus:outline-hidden focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
 						/>
 					</div>
 					<div class="mb-4">
@@ -198,7 +198,7 @@
 							type="password"
 							id="databasePassword"
 							bind:value={databasePassword}
-							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-xs focus:border-blue-500 focus:outline-hidden focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
 						/>
 					</div>
 					<div class="mb-4">
@@ -211,7 +211,7 @@
 							type="number"
 							id="databasePort"
 							bind:value={databasePort}
-							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
+							class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-xs focus:border-blue-500 focus:outline-hidden focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
 						/>
 					</div>
 				{:else if currentStep === 4}
@@ -268,7 +268,7 @@
 					</div>
 					<button
 						onclick={submitConfig}
-						class="w-full rounded-md bg-green-500 px-4 py-2 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+						class="w-full rounded-md bg-green-500 px-4 py-2 text-white hover:bg-green-600 focus:outline-hidden focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
 					>
 						Finalizar Configuración
 					</button>
@@ -278,13 +278,13 @@
 					<div class="mt-8 flex justify-between">
 						<button
 							onclick={prevStep}
-							class="rounded-md bg-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
+							class="rounded-md bg-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-400 focus:outline-hidden focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
 						>
 							Anterior
 						</button>
 						<button
 							onclick={nextStep}
-							class="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-700 hover:dark:bg-gray-600"
+							class="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-700 dark:hover:bg-gray-600"
 						>
 							Siguiente
 						</button>
